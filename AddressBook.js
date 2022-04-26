@@ -85,6 +85,34 @@ class AddressBook {
         });
         return contactList;
     }
+
+    searchContact(contactList) {
+        console.log("1. search by City");
+        console.log("2. search by State");
+        let option = parseInt(prompt("Enter your choice : "));
+
+        switch (option) {
+            case 1:
+                let city = prompt("Enter the City you want to search the person for : ");
+                contactList.forEach(contact => {
+                    if (contact.city == city) {
+                        console.log(contact);
+                    }
+                });
+                break;
+            case 2:
+                let state = prompt("Enter the State you want to search the person for : ");
+                contactList.forEach(contact => {
+                    if (contact.state == state) {
+                        console.log(contact);
+                    }
+                });
+                break;
+            default:
+                console.log("You have entered invalid input!");
+                break;
+        }
+    }
 }
 
 module.exports = AddressBook;
